@@ -1,8 +1,11 @@
 package de.fernuni.pi3.interactionmanager.sesingeventmanager;
 
+import org.springframework.stereotype.Service;
+
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
+@Service
 public class TopicVarsAndResetFeedbackRule extends AbstractSensingEventManagerRule {
 
 	@Override

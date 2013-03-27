@@ -1,2 +1,10 @@
+# eclipse files
+.classpath
+.project
+.settings/
+
+# mvn files
 target/
+
+# start.sh logfile
 interaction-manager.log

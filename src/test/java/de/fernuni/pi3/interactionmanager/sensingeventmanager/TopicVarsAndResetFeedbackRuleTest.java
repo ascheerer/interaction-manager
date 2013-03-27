@@ -1,4 +1,4 @@
-package de.fernuni.pi3.interactionmanager.sensingengine;
+package de.fernuni.pi3.interactionmanager.sensingeventmanager;
 
 import org.junit.Before;
 
