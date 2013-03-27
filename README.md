@@ -1,11 +1,11 @@
-interaction-manager
-===================
+InteractionManager
+==================
 
 Hi!
 
-Welcome to the interaction-manager project written by Andreas Scheerer.
+Welcome to the InteractionManager project written by Andreas Scheerer.
 
-Please visit the project wiki if you are searching for further information: <br/>
+For further information, please visit the project wiki: <br/>
 -> https://github.com/ascheerer/interaction-manager/wiki
 
 Have fun!<br/>
