@@ -8,6 +8,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public abstract class AbstractRuleTest {
 
@@ -35,6 +36,7 @@ public abstract class AbstractRuleTest {
 			data.expectedEvent = expectedEvent;
 		}
 		data.expectedInstanceVars = expectedInstanceVars;
+		
 		testData.add(data);
 	}
 

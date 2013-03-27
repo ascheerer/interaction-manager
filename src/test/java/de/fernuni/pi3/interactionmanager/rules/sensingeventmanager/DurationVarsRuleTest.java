@@ -1,12 +1,12 @@
-package de.fernuni.pi3.interactionmanager.sensingeventmanager;
+package de.fernuni.pi3.interactionmanager.rules.sensingeventmanager;
 
 import org.junit.Before;
 
 import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
-import de.fernuni.pi3.interactionmanager.Rule;
-import de.fernuni.pi3.interactionmanager.sesingeventmanager.DurationVarsRule;
+import de.fernuni.pi3.interactionmanager.rules.Rule;
+import de.fernuni.pi3.interactionmanager.rules.sesingeventmanager.DurationVarsRule;
 
 public class DurationVarsRuleTest extends AbstractRuleTest {
 
@@ -24,7 +24,6 @@ public class DurationVarsRuleTest extends AbstractRuleTest {
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.put("TIME_PAST", 1000000.0);
 		expectedInstanceVars.put("TIME_LEFT", 4400000.0);
-		expectedInstanceVars.put("PULSE_COUNT", 3.0);
 		
 		addTestData(givenEvent, givenInstanceVars, expectedEvent, expectedInstanceVars);
 	}
@@ -33,4 +32,5 @@ public class DurationVarsRuleTest extends AbstractRuleTest {
 	protected Rule getRule() {
 		return new DurationVarsRule();
 	}
+
 }

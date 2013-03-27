@@ -1,18 +1,20 @@
-package de.fernuni.pi3.interactionmanager;
+package de.fernuni.pi3.interactionmanager.rules;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-class RuleService {
+import de.fernuni.pi3.interactionmanager.Event;
 
-	private static Logger logger = Logger.getLogger(Event.class.getName());
+@Service
+public class RuleService {
+
+	private static Logger logger = Logger.getLogger(Event.class);
 	
 	static final String DEFAULT_APPTYPE = "default";
 
@@ -32,14 +34,14 @@ class RuleService {
 		}
 	}
 
-	RuleSet getRuleSet(String appType) {
+	public RuleSet getRuleSet(String appType) {
 
 		if (!ruleSets.containsKey(appType)) {
 
 			if (appTypeRules.containsKey(appType)) {
 				ruleSets.put(appType, new RuleSet(appTypeRules.get(appType)));
 			} else {
-				logger.warning("There are no rules available for app type '" + appType + "'. Will fallback to default ruleset containing a simple echo rule." );
+				logger.warn("There are no rules available for app type '" + appType + "'. Will fallback to default ruleset containing a simple echo rule." );
 				ruleSets.put(appType,
 						new RuleSet(appTypeRules.get(DEFAULT_APPTYPE)));
 			}

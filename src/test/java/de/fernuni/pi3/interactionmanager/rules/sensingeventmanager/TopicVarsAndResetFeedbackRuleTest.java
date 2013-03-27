@@ -1,12 +1,12 @@
-package de.fernuni.pi3.interactionmanager.sensingeventmanager;
+package de.fernuni.pi3.interactionmanager.rules.sensingeventmanager;
 
 import org.junit.Before;
 
 import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
-import de.fernuni.pi3.interactionmanager.Rule;
-import de.fernuni.pi3.interactionmanager.sesingeventmanager.TopicVarsAndResetFeedbackRule;
+import de.fernuni.pi3.interactionmanager.rules.Rule;
+import de.fernuni.pi3.interactionmanager.rules.sesingeventmanager.TopicVarsAndResetFeedbackRule;
 
 public class TopicVarsAndResetFeedbackRuleTest extends AbstractRuleTest {
 
@@ -24,14 +24,27 @@ public class TopicVarsAndResetFeedbackRuleTest extends AbstractRuleTest {
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("feedback");
-		expectedEvent.setProperty("eventId","3");
+		expectedEvent.setProperty("eventId",3);
 		expectedEvent.setProperty("type","reset");
 		
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.put("TOPIC_APPLICATION", "12");
 		expectedInstanceVars.put("TOPIC_DURATION", 900000.0);
+		expectedInstanceVars.put("TOPIC_START", 0.0);
+		expectedInstanceVars.put("QUESTION_COUNT", 0);
 		
+		// test a: TIME_PAST not set before
 		addTestData(givenEvent, givenInstanceVars, expectedEvent, expectedInstanceVars);
+
+		// test b: TIME_PAST set before
+		InstanceVars givenInstanceVars1 = new InstanceVars();
+		givenInstanceVars1.put("TIME_PAST", 10.0);
+		
+		InstanceVars expectedInstanceVars1 = new InstanceVars();
+		expectedInstanceVars1.putAll(expectedInstanceVars);
+		expectedInstanceVars1.put("TOPIC_START", 10.0);
+		expectedInstanceVars1.put("TIME_PAST", 10.0);
+		addTestData(givenEvent, givenInstanceVars1, expectedEvent, expectedInstanceVars1);
 	}
 
 	@Override

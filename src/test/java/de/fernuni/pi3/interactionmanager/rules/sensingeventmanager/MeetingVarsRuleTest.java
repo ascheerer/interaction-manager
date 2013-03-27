@@ -1,12 +1,12 @@
-package de.fernuni.pi3.interactionmanager.sensingeventmanager;
+package de.fernuni.pi3.interactionmanager.rules.sensingeventmanager;
 
 import org.junit.Before;
 
 import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
-import de.fernuni.pi3.interactionmanager.Rule;
-import de.fernuni.pi3.interactionmanager.sesingeventmanager.MeetingVarsRule;
+import de.fernuni.pi3.interactionmanager.rules.Rule;
+import de.fernuni.pi3.interactionmanager.rules.sesingeventmanager.MeetingVarsRule;
 
 public class MeetingVarsRuleTest extends AbstractRuleTest {
 
@@ -23,8 +23,6 @@ public class MeetingVarsRuleTest extends AbstractRuleTest {
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.put("MEETING_DURATION", 5400000.0);
 		expectedInstanceVars.put("MEETING_TYPE", "Informational");
-		expectedInstanceVars.put("START_TIME", 4.35E7);
-		expectedInstanceVars.put("END_TIME", 4.89E7);
 		
 		addTestData(givenEvent, givenInstanceVars, expectedEvent, expectedInstanceVars);
 	}

@@ -1,4 +1,10 @@
-package de.fernuni.pi3.interactionmanager;
+package de.fernuni.pi3.interactionmanager.rules;
+
+import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
+import de.fernuni.pi3.interactionmanager.Event;
+import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.DefaultRule;
+import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public class DefaultRuleTest extends AbstractRuleTest {
 
@@ -31,5 +37,4 @@ public class DefaultRuleTest extends AbstractRuleTest {
 	protected Rule getRule() {
 		return new DefaultRule();
 	}
-
 }

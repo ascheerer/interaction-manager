@@ -103,5 +103,9 @@ public final class Event {
 	public boolean isEmpty() {
 		return name.equals(DEFAULT_VALUE);
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Event(json=" + this.toJson() +")";
+	}
 }

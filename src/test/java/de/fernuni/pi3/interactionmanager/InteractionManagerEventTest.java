@@ -37,7 +37,6 @@ public class InteractionManagerEventTest {
 		customVarMap.put("varSubKeyMap", "varSubValueMap");
 		event.setCustomVar("varKeyMap", customVarMap);
 		event.setProperty("varKeyMap", customVarMap);
-		System.out.println(event.toJson());
 		assertEquals("Unexpected JSON string", TEST_EVENT_JSON, event.toJson());
 	}
 
