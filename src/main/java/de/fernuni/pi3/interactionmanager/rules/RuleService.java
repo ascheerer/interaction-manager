@@ -9,12 +9,10 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import de.fernuni.pi3.interactionmanager.Event;
-
 @Service
 public class RuleService {
 
-	private static Logger logger = Logger.getLogger(Event.class);
+	private static Logger logger = Logger.getLogger(RuleService.class);
 	
 	static final String DEFAULT_APPTYPE = "default";
 
