@@ -30,4 +30,22 @@ abstract public class AbstractRule implements Rule {
 		return "Rule(index=" + getIndex() + "; appType=" + getAppType()
 				+ "; class=" + this.getClass().getName() + ")";
 	}
+	
+	protected final void incrVar(InstanceVars var, String varName) {
+		if (var.get(varName) == null) {
+			var.put(varName, 1);
+			return;
+		}
+		
+		var.put(varName, (Integer) var.get(varName) + 1);
+	}
+	
+	protected final void decrVar(InstanceVars var, String varName) {
+		if (var.get(varName) == null || (Integer) var.get(varName) < 1) {
+			var.put(varName, 0);
+			return;
+		}
+		
+		var.put(varName, (Integer) var.get(varName) - 1);
+	}
 }

@@ -1,4 +1,4 @@
-package de.fernuni.pi3.interactionmanager.rules.sesingeventmanager;
+package de.fernuni.pi3.interactionmanager.rules.sensingeventmanager;
 
 import org.springframework.stereotype.Service;
 

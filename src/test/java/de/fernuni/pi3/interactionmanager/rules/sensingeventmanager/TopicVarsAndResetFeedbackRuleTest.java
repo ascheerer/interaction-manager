@@ -6,7 +6,7 @@ import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
-import de.fernuni.pi3.interactionmanager.rules.sesingeventmanager.TopicVarsAndResetFeedbackRule;
+import de.fernuni.pi3.interactionmanager.rules.sensingeventmanager.TopicVarsAndResetFeedbackRule;
 
 public class TopicVarsAndResetFeedbackRuleTest extends AbstractRuleTest {
 
