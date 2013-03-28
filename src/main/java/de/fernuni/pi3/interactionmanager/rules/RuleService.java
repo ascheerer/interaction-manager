@@ -39,7 +39,9 @@ public class RuleService {
 		if (!ruleSets.containsKey(appType)) {
 
 			if (appTypeRules.containsKey(appType)) {
-				ruleSets.put(appType, new RuleSet(appTypeRules.get(appType)));
+				RuleSet ruleSet = new RuleSet(appTypeRules.get(appType));
+				ruleSets.put(appType, ruleSet);
+				logger.info("Loaded rules for appType '" + appType + "': " + ruleSet);
 			} else {
 				logger.warn("There are no rules available for app type '" + appType + "'. Will fallback to default ruleset containing a simple echo rule." );
 				ruleSets.put(appType,

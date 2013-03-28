@@ -37,7 +37,6 @@ public class RuleSet {
 
 			}
 		});
-
 	}
 
 	public List<Event> processEvent(Event incomingEvent) {
@@ -77,5 +76,17 @@ public class RuleSet {
 			instanceVars.put(event.getAppInstanceId(), new InstanceVars());
 		}
 	}
-
+	
+	@Override
+	public String toString() {
+		String str = "RuleSet(";
+		for (Rule rule : rules) {
+			if (rule.getIndex() !=0) {
+				str += "; ";
+			}
+			
+			str += rule.getIndex() + "=" + rule.getClass().getName();
+		}
+		return str + ")";
+	}
 }
