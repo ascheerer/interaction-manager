@@ -18,7 +18,8 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("feedbackAssistant")
-				&& ((Integer) var.get("QUESTION_COUNT") > 10));
+				&& ((Integer) var.get("QUESTION_COUNT") > 10) 
+				&& "Planning".equals(var.get("MEETING_TYPE")));
 	}
 
 	@Override

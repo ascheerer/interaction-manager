@@ -16,7 +16,7 @@ public class QuestionFeedbackRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("topic") && "12".equals(in.getProperty("topicApplication")));
+		return (in.getName().equals("topic") && "Planning".equals(var.get("MEETING_TYPE")));
 	}
 
 	@Override

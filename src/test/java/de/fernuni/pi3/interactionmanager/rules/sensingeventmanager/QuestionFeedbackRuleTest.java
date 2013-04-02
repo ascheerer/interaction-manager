@@ -18,6 +18,7 @@ public class QuestionFeedbackRuleTest extends AbstractRuleTest {
 
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
+		givenInstanceVars.put("MEETING_TYPE", "Planning");
 
 		// expected
 		Event expectedEvent = new Event();
@@ -29,6 +30,7 @@ public class QuestionFeedbackRuleTest extends AbstractRuleTest {
 		expectedEvent.setProperty("headline", "Möchten Sie eine Frage stellen?");
 
 		InstanceVars expectedInstanceVars = new InstanceVars();
+		expectedInstanceVars.putAll(givenInstanceVars);
 
 		addTestData(givenEvent, givenInstanceVars, expectedEvent,
 				expectedInstanceVars);

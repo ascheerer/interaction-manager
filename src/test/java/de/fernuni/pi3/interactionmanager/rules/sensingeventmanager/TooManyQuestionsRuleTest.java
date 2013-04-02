@@ -21,7 +21,8 @@ public class TooManyQuestionsRuleTest extends AbstractRuleTest {
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
 		givenInstanceVars.put("QUESTION_COUNT", 11);
-
+		givenInstanceVars.put("MEETING_TYPE", "Planning");
+		
 		// expected
 		Event expectedEvent = new Event();
 		expectedEvent.setAppType(givenEvent.getAppType());
