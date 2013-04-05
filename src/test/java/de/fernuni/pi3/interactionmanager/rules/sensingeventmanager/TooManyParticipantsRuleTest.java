@@ -20,7 +20,7 @@ public class TooManyParticipantsRuleTest extends AbstractRuleTest {
 		// given
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
-		givenInstanceVars.put("PARTICIPANT_COUNT", 11);
+		givenInstanceVars.put("PARTICIPANT_COUNT", SensingEventManagerConsts.MAX_PARTICIPANT_COUNT + 1);
 		givenInstanceVars.put("MEETING_TYPE", "Planning");
 
 		// expected
