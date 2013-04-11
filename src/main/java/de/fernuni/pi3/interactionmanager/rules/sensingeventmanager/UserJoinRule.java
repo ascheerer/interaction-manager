@@ -15,7 +15,7 @@ public class UserJoinRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("participant") && "userJoin".equals(in.getCustomVar("eventType")));
+		return (in.getName().equals("participant") && "userJoin".equals(in.getCustomVar("senderTime")));
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class UserLeftRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("participant") && "userLeft".equals(in.getCustomVar("eventType")));
+		return (in.getName().equals("participant") && "userLeft".equals(in.getCustomVar("senderTime")));
 	}
 
 	@Override

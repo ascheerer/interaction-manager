@@ -16,7 +16,7 @@ public class QuestionFeedbackUserJoinRule extends AbstractSensingEventManagerRul
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("participant") && "userJoin".equals(in.getCustomVar("eventType")) && "Planning".equals(var.get("MEETING_TYPE")));
+		return (in.getName().equals("participant") && "userJoin".equals(in.getCustomVar("senderTime")) && "Planning".equals(var.get("MEETING_TYPE")));
 	}
 
 	@Override
