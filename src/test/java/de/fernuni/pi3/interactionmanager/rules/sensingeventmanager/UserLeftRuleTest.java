@@ -10,7 +10,7 @@ import de.fernuni.pi3.interactionmanager.rules.sensingeventmanager.UserLeftRule;
 
 public class UserLeftRuleTest extends AbstractRuleTest {
 
-	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"eventType\":\"userLeft\"}}"; 
+	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"senderTime\":\"userLeft\"}}"; 
 	
 	@Override
 	@Before

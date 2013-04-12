@@ -10,7 +10,7 @@ import de.fernuni.pi3.interactionmanager.rules.sensingeventmanager.UserJoinRule;
 
 public class UserJoinRuleTest extends AbstractRuleTest {
 
-	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"eventType\":\"userJoin\"}}"; 
+	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"senderTime\":\"userJoin\"}}"; 
 	
 	@Override
 	@Before

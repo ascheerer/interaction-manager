@@ -9,7 +9,7 @@ import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public class QuestionFeedbackUserJoinRuleTest extends AbstractRuleTest {
 
-	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"topicId\":3.0,\"topicTitle\":\"Brainstorming\",\"topicApplication\":\"12\",\"topicDuration\":2700000.0},\"customVars\":{\"id\":1.3642399748109E14,\"eventId\":3.0,\"eventType\":\"userJoin\",\"senderTime\":\"topicChange\",\"_dateCreated\":\"2013-03-25T20:32:54\",\"_timeCreated\":\"20:32:54\"}}"; 
+	private static final String inEventJson = "{\"name\":\"participant\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"topicId\":3.0,\"topicTitle\":\"Brainstorming\",\"topicApplication\":\"12\",\"topicDuration\":2700000.0},\"customVars\":{\"id\":1.3642399748109E14,\"eventId\":3.0,\"senderTime\":\"userJoin\",\"_dateCreated\":\"2013-03-25T20:32:54\",\"_timeCreated\":\"20:32:54\"}}"; 
 
 	@Override
 	@Before
