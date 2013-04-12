@@ -7,7 +7,7 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
 
-public class BSAddIdeaVarRuleTest extends AbstractRuleTest {
+public class BsAddIdeaVarRuleTest extends AbstractRuleTest {
 
 	//when((in.customVars.appName == "brainstorming" AND (BRAINSTORMING_STEP = "ideation")) AND (in.name == "BsAddIdea")).setVar(IDEA_COUNT++)
 
@@ -49,6 +49,6 @@ public class BSAddIdeaVarRuleTest extends AbstractRuleTest {
 
 	@Override
 	protected Rule getRule() {
-		return new BSAddIdeaVarRule();
+		return new BsAddIdeaVarRule();
 	}
 }

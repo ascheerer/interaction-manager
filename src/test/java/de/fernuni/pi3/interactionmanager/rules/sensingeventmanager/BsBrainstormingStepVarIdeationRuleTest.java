@@ -6,9 +6,9 @@ import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
-import de.fernuni.pi3.interactionmanager.rules.sensingeventmanager.TopicVarBrainstormingStepRule;
+import de.fernuni.pi3.interactionmanager.rules.sensingeventmanager.BsBraintormingStepVarIdeationRule;
 
-public class TopicVarBrainstormingStepRuleTest extends AbstractRuleTest {
+public class BsBrainstormingStepVarIdeationRuleTest extends AbstractRuleTest {
 
 	private static final String inEventJson = "{\"name\":\"topic\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"topicId\":3.0,\"topicTitle\":\"Brainstorming\",\"topicApplication\":\"10\",\"topicDuration\":2700000.0},\"customVars\":{\"id\":1.3642399748109E14,\"eventId\":3.0,\"eventType\":\"topic\",\"senderTime\":\"topicChange\",\"_dateCreated\":\"2013-03-25T20:32:54\",\"_timeCreated\":\"20:32:54\"}}"; 
 	
@@ -29,6 +29,6 @@ public class TopicVarBrainstormingStepRuleTest extends AbstractRuleTest {
 
 	@Override
 	protected Rule getRule() {
-		return new TopicVarBrainstormingStepRule();
+		return new BsBraintormingStepVarIdeationRule();
 	}
 }

@@ -6,21 +6,21 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
 @Service
-public class TopicVarBrainstormingStepRule extends AbstractSensingEventManagerRule {
-
+public class BsBrainstormingStepVarRule extends AbstractSensingEventManagerRule {
+	
 	@Override
 	public int getIndex() {
-		return 3;
+		return 23;
 	}
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("topic") && "10".equals(in.getProperty("topicApplication")));
+		return (in.getName().equals("brainstorming")
+				&& "BsSwitchToNextIdeationView".equals(in.getProperty("eventType")));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
-		var.put("BRAINSTORMING_STEP", "ideation");
+		var.put("BRAINSTORMING_STEP", in.getProperty("viewName"));
 	}
-
 }

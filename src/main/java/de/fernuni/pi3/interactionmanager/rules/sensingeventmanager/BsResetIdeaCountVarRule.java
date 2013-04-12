@@ -6,24 +6,24 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
 @Service
-public class BsAddIdeaVarRule extends AbstractSensingEventManagerRule {
+public class BsResetIdeaCountVarRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	public int getIndex() {
-		return 20;
+		return 22;
 	}
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("BsAddIdea")
-				&& "brainstorming".equals(in.getCustomVar("appName")) && "ideation"
-					.equals(var.get("BRAINSTORMING_STEP")));
+		return (in.getName().equals("duration")
+				&& ((Integer) var.get("TEMP_IDEA_COUNT") > SensingEventManagerConsts.MIN_IDEA_COUNT)
+				&& "10".equals(var.get("TOPIC_APPLICATION"))
+				&& "ideation".equals(var.get("BRAINSTORMING_STEP")));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
-		incrVar(var, "IDEA_COUNT");
-		incrVar(var, "TEMP_IDEA_COUNT");
+		var.put("TEMP_IDEA_COUNT", 0);
 	}
-	
+
 }
