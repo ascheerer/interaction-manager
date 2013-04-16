@@ -17,8 +17,9 @@ public class TimeShortageRedRule extends AbstractSensingEventManagerRule {
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("duration")
 				&& (var.get("TOPIC_APPLICATION") != null) && ((Double) in
-				.getProperty("timePast") - (Double) var.get("TOPIC_START") >= 0.9 * (Double) var
-				.get("TOPIC_DURATION")));
+				.getProperty("timePast")
+				- getRequiredVar(var, "TOPIC_START", Double.class) >= 0.9 * getRequiredVar(
+				var, "TOPIC_DURATION", Double.class)));
 	}
 
 	@Override

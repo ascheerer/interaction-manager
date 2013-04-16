@@ -21,9 +21,9 @@ public class BsUncategorizedIdeasRule extends AbstractSensingEventManagerRule {
 				&& "BsSwitchToNextIdeationView".equals(in
 						.getProperty("eventType"))
 				&& "clustering-result".equals(in.getProperty("viewName"))
-				&& "10".equals(var.get("TOPIC_APPLICATION")) && (Integer) var
-				.get("CATEGORIZED_IDEA_COUNT") < (Integer) var
-				.get("IDEA_COUNT"));
+				&& "10".equals(var.get("TOPIC_APPLICATION")) && getRequiredVar(
+				var, "CATEGORIZED_IDEA_COUNT", Integer.class) < getRequiredVar(
+				var, "IDEA_COUNT", Integer.class));
 	}
 
 	@Override

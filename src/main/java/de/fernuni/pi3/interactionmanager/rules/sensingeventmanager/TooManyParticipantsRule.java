@@ -18,7 +18,7 @@ public class TooManyParticipantsRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("participant")
-				&& ((Integer) var.get("PARTICIPANT_COUNT") > SensingEventManagerConsts.MAX_PARTICIPANT_COUNT) && "Planning"
+				&& (getRequiredVar(var, "PARTICIPANT_COUNT", Integer.class) > SensingEventManagerConsts.MAX_PARTICIPANT_COUNT) && "Planning"
 					.equals(var.get("MEETING_TYPE")));
 	}
 

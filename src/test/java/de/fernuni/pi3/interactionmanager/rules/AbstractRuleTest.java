@@ -1,4 +1,4 @@
-package de.fernuni.pi3.interactionmanager;
+package de.fernuni.pi3.interactionmanager.rules;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.fernuni.pi3.interactionmanager.Event;
+import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public abstract class AbstractRuleTest {

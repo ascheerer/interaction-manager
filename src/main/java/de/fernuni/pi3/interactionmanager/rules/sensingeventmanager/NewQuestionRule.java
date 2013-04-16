@@ -27,7 +27,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 		// increase var QUESTION_COUNT
 		if (var.get("QUESTION_COUNT") != null) {
 			var.put("QUESTION_COUNT",
-					(Integer) var.get("QUESTION_COUNT") + 1);
+					getRequiredVar(var,"QUESTION_COUNT",Integer.class) + 1);
 		} else {
 			var.put("QUESTION_COUNT", 1);
 		}

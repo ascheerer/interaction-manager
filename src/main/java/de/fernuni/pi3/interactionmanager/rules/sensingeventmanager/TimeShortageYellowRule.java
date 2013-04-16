@@ -18,10 +18,11 @@ public class TimeShortageYellowRule extends AbstractSensingEventManagerRule {
 		return (in.getName().equals("duration")
 				&& (var.get("TOPIC_APPLICATION") != null)
 				&& ((Double) in.getProperty("timePast")
-						- (Double) var.get("TOPIC_START") >= 0.7 * (Double) var
-						.get("TOPIC_DURATION")) && ((Double) in
-				.getProperty("timePast") - (Double) var.get("TOPIC_START") < 0.9 * (Double) var
-				.get("TOPIC_DURATION")));
+						- getRequiredVar(var, "TOPIC_START", Double.class) >= 0.7 * getRequiredVar(
+						var, "TOPIC_DURATION", Double.class)) && ((Double) in
+				.getProperty("timePast")
+				- getRequiredVar(var, "TOPIC_START", Double.class) < 0.9 * getRequiredVar(
+				var, "TOPIC_DURATION", Double.class)));
 	}
 
 	@Override

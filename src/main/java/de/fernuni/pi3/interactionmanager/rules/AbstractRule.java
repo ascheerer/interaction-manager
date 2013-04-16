@@ -48,4 +48,16 @@ abstract public class AbstractRule implements Rule {
 		
 		var.put(varName, (Integer) var.get(varName) - 1);
 	}
+	
+	@SuppressWarnings("unchecked")
+	protected <T> T getRequiredVar(InstanceVars var, String varName, Class<T> clazz) {
+		if (! var.containsKey(varName)) {
+			throw new RequiredVarException("Required instance var '" + varName + "' not set in rule " + this);
+		}
+		
+		if (! var.get(varName).getClass().equals(clazz)) {
+			throw new RequiredVarException("Instance var '" + varName + "' is not of expected type " + clazz.getName() + " but of type " + var.get(varName).getClass().getName());
+		}
+		return (T) var.get(varName);
+	}
 }

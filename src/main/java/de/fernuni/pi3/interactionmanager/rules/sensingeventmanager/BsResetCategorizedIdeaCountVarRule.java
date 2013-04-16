@@ -16,7 +16,7 @@ public class BsResetCategorizedIdeaCountVarRule extends AbstractSensingEventMana
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("duration")
-				&& ((Integer) var.get("TEMP_CATEGORIZED_IDEA_COUNT") > SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT)
+				&& (getRequiredVar(var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) > SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT)
 				&& "10".equals(var.get("TOPIC_APPLICATION"))
 				&& "clustering".equals(var.get("BRAINSTORMING_STEP")));
 	}
