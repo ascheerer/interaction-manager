@@ -59,7 +59,7 @@ public class RuleSet {
 				
 				if (e instanceof RequiredVarException) {
 					// no stacktrace required
-					logger.error(errorMsg);
+					logger.warn(errorMsg);
 				} else {
 					// unexpected error
 					logger.error(errorMsg, e);
