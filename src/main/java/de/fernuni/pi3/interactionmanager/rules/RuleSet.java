@@ -55,7 +55,18 @@ public class RuleSet {
 						instanceVars.get(incomingEvent.getAppInstanceId()));
 
 			} catch (Exception e) {
-				logger.error("Could not apply rule " + rule + " for event " + incomingEvent + ": " + e.getMessage(), e);
+				String errorMsg = "Could not apply rule " + rule + " for event " + incomingEvent + ": " + e.getMessage();
+				logger.error(errorMsg, e);
+				
+				// TODO: replace hard coded error event for SensingEventEngine by a configurable one per appType
+				Event errorEvent = new Event("recommendation");
+				errorEvent.setAppType(incomingEvent.getAppType());
+				errorEvent.setAppInstanceId(incomingEvent.getAppInstanceId());
+				errorEvent.setProperty("eventId", 1);
+				errorEvent.setProperty("headline", "Fehler beim Anwenden der Regel " + rule + " auf das Event " + incomingEvent);
+				errorEvent.setProperty("text", "InteractionManager Fehlermeldung: " + errorMsg); 
+				
+				outgoingEvents.add(errorEvent);
 			}
 
 			if (!outgoingEvent.isEmpty()) {
