@@ -2,9 +2,9 @@ package de.fernuni.pi3.interactionmanager.rules.sensingeventmanager;
 
 import org.junit.Before;
 
-import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public class BsBrainstormingStepVarRuleTest extends AbstractRuleTest {

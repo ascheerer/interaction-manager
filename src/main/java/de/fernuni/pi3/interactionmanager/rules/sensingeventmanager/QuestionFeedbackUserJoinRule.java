@@ -6,17 +6,19 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
 @Service
-public class QuestionFeedbackUserJoinRule extends AbstractSensingEventManagerRule {
+public class QuestionFeedbackUserJoinRule extends
+		AbstractSensingEventManagerRule {
 
 	@Override
 	public int getIndex() {
 		return 7;
 	}
 
-
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("participant") && "userJoin".equals(in.getCustomVar("senderTime")) && "Planning".equals(var.get("MEETING_TYPE")));
+		return (in.getName().equals("participant")
+				&& "userJoin".equals(in.getCustomVar("senderTime")) && "Planning"
+					.equals(var.get("MEETING_TYPE")));
 	}
 
 	@Override
@@ -28,5 +30,5 @@ public class QuestionFeedbackUserJoinRule extends AbstractSensingEventManagerRul
 		out.setProperty("type", "question");
 		out.setProperty("headline", "Möchten Sie eine Frage stellen?");
 	}
-	
+
 }

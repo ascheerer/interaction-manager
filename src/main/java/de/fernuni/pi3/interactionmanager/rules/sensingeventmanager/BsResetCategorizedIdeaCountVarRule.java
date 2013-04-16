@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class BsResetCategorizedIdeaCountVarRule extends AbstractSensingEventManagerRule {
@@ -14,9 +15,9 @@ public class BsResetCategorizedIdeaCountVarRule extends AbstractSensingEventMana
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("duration")
-				&& ((Integer) var.get("TEMP_CATEGORIZED_IDEA_COUNT") > SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT)
+				&& (getRequiredVar(var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) > SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT)
 				&& "10".equals(var.get("TOPIC_APPLICATION"))
 				&& "clustering".equals(var.get("BRAINSTORMING_STEP")));
 	}

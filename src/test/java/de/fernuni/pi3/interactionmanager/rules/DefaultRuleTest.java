@@ -1,6 +1,5 @@
 package de.fernuni.pi3.interactionmanager.rules;
 
-import de.fernuni.pi3.interactionmanager.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.DefaultRule;

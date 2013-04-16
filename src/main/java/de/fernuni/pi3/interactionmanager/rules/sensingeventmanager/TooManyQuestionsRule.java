@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
@@ -16,10 +17,10 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("feedbackAssistant")
-				&& ((Integer) var.get("QUESTION_COUNT") > 10) 
-				&& "Planning".equals(var.get("MEETING_TYPE")));
+				&& (getRequiredVar(var, "QUESTION_COUNT", Integer.class) > 10) && "Planning"
+					.equals(var.get("MEETING_TYPE")));
 	}
 
 	@Override

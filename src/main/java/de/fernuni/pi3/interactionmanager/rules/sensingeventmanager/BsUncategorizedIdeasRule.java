@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class BsUncategorizedIdeasRule extends AbstractSensingEventManagerRule {
@@ -16,14 +17,14 @@ public class BsUncategorizedIdeasRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("brainstorming")
 				&& "BsSwitchToNextIdeationView".equals(in
 						.getProperty("eventType"))
 				&& "clustering-result".equals(in.getProperty("viewName"))
-				&& "10".equals(var.get("TOPIC_APPLICATION")) && (Integer) var
-				.get("CATEGORIZED_IDEA_COUNT") < (Integer) var
-				.get("IDEA_COUNT"));
+				&& "10".equals(var.get("TOPIC_APPLICATION")) && getRequiredVar(
+				var, "CATEGORIZED_IDEA_COUNT", Integer.class) < getRequiredVar(
+				var, "IDEA_COUNT", Integer.class));
 	}
 
 	@Override

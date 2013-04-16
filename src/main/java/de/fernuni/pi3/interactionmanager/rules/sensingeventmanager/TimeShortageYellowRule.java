@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class TimeShortageYellowRule extends AbstractSensingEventManagerRule {
@@ -14,14 +15,15 @@ public class TimeShortageYellowRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("duration")
 				&& (var.get("TOPIC_APPLICATION") != null)
 				&& ((Double) in.getProperty("timePast")
-						- (Double) var.get("TOPIC_START") >= 0.7 * (Double) var
-						.get("TOPIC_DURATION")) && ((Double) in
-				.getProperty("timePast") - (Double) var.get("TOPIC_START") < 0.9 * (Double) var
-				.get("TOPIC_DURATION")));
+						- getRequiredVar(var, "TOPIC_START", Double.class) >= 0.7 * getRequiredVar(
+						var, "TOPIC_DURATION", Double.class)) && ((Double) in
+				.getProperty("timePast")
+				- getRequiredVar(var, "TOPIC_START", Double.class) < 0.9 * getRequiredVar(
+				var, "TOPIC_DURATION", Double.class)));
 	}
 
 	@Override

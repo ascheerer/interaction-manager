@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class TooManyParticipantsRule extends AbstractSensingEventManagerRule {
@@ -16,9 +17,9 @@ public class TooManyParticipantsRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("participant")
-				&& ((Integer) var.get("PARTICIPANT_COUNT") > SensingEventManagerConsts.MAX_PARTICIPANT_COUNT) && "Planning"
+				&& (getRequiredVar(var, "PARTICIPANT_COUNT", Integer.class) > SensingEventManagerConsts.MAX_PARTICIPANT_COUNT) && "Planning"
 					.equals(var.get("MEETING_TYPE")));
 	}
 

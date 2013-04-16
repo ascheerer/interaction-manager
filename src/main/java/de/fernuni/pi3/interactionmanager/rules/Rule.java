@@ -9,6 +9,6 @@ import de.fernuni.pi3.interactionmanager.InstanceVars;
 public interface Rule {
 	public String getAppType();
 	public int getIndex();
-	public void processEvent(Event in, Event out, InstanceVars var);
+	public void processEvent(Event in, Event out, InstanceVars var) throws RequiredVarException;
 }
 
