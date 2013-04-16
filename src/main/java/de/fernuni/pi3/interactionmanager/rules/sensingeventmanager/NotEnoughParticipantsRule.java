@@ -17,10 +17,12 @@ public class NotEnoughParticipantsRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var)
+			throws RequiredVarException {
 		return in.getName().equals("participant")
-				&& getRequiredVar(var,"PARTICIPANT_COUNT",Integer.class) < SensingEventManagerConsts.MIN_PARTICIPANT_COUNT
-				&& "Planning".equals(var.get("MEETING_TYPE")) && (getRequiredVar(var,"TIME_PAST", Double.class) > 180000);
+				&& "Planning".equals(var.get("MEETING_TYPE"))
+				&& getRequiredVar(var, "PARTICIPANT_COUNT", Integer.class) < SensingEventManagerConsts.MIN_PARTICIPANT_COUNT
+				&& (getRequiredVar(var, "TIME_PAST", Double.class) > 180000);
 	}
 
 	@Override

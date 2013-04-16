@@ -17,10 +17,11 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var)
+			throws RequiredVarException {
 		return (in.getName().equals("feedbackAssistant")
-				&& (getRequiredVar(var, "QUESTION_COUNT", Integer.class) > 10) && "Planning"
-					.equals(var.get("MEETING_TYPE")));
+				&& "Planning".equals(var.get("MEETING_TYPE")) && (getRequiredVar(
+				var, "QUESTION_COUNT", Integer.class) > 10));
 	}
 
 	@Override

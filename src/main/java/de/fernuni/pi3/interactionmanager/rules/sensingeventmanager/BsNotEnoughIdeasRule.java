@@ -17,11 +17,12 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var)
+			throws RequiredVarException {
 		return (in.getName().equals("duration")
-				&& (getRequiredVar(var, "TEMP_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_IDEA_COUNT)
 				&& "10".equals(var.get("TOPIC_APPLICATION"))
-				&& "ideation".equals(var.get("BRAINSTORMING_STEP")));
+				&& "ideation".equals(var.get("BRAINSTORMING_STEP")) && (getRequiredVar(
+					var, "TEMP_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_IDEA_COUNT));
 	}
 
 	@Override
@@ -32,8 +33,7 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 		out.setProperty("eventId", 1);
 		out.setProperty("headline",
 				"Die Meeting-Teilnehmer generieren keine neuen Ideen.");
-		out.setProperty("text",
-				"Was wollen Sie tun?");
+		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
 		options.put("Wechseln zur nächsten Phase Clustering", "clustering");
 		options.put("Eine Nachricht an alle Teilnehmer senden", "sendMessage");

@@ -18,11 +18,12 @@ public class BsNotEnoughCategorizationsRule extends
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var)
+			throws RequiredVarException {
 		return (in.getName().equals("duration")
-				&& (getRequiredVar(var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT)
-				&& "10".equals(var.get("TOPIC_APPLICATION")) && "clustering"
-					.equals(var.get("BRAINSTORMING_STEP")));
+				&& "clustering".equals(var.get("BRAINSTORMING_STEP"))
+				&& "10".equals(var.get("TOPIC_APPLICATION")) && (getRequiredVar(
+					var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT));
 	}
 
 	@Override
