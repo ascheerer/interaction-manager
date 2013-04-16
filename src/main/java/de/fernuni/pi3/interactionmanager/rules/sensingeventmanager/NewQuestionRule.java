@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class NewQuestionRule extends AbstractSensingEventManagerRule {
@@ -23,7 +24,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected void ruleBody(Event in, Event out, InstanceVars var) {
+	protected void ruleBody(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		// increase var QUESTION_COUNT
 		if (var.get("QUESTION_COUNT") != null) {
 			var.put("QUESTION_COUNT",

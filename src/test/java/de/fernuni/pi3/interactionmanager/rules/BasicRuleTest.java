@@ -12,7 +12,7 @@ import de.fernuni.pi3.interactionmanager.InstanceVars;
 public class BasicRuleTest {
 	
 	@Test(expected = RequiredVarException.class)
-	public void testGetRequiredVarOfWrongType() {
+	public void testGetRequiredVarOfWrongType() throws Exception {
 		Rule testRule = getTestRule();
 		InstanceVars var = new InstanceVars();
 		var.put("testVar", "UnexpectedValueType");
@@ -21,14 +21,14 @@ public class BasicRuleTest {
 
 
 	@Test(expected = RequiredVarException.class)
-	public void testGetRequiredVarUnset() {
+	public void testGetRequiredVarUnset() throws Exception {
 		Rule testRule = getTestRule();
 		InstanceVars var = new InstanceVars();
 		testRule.processEvent(new Event(), new Event(), var);
 	}
 
 	@Test
-	public void testGetRequiredVarRegular() {
+	public void testGetRequiredVarRegular() throws Exception {
 		Rule testRule = getTestRule();
 		InstanceVars var = new InstanceVars();
 		var.put("testVar", 3);
@@ -53,7 +53,7 @@ public class BasicRuleTest {
 
 			@Override
 			protected boolean ruleCondition(Event in, Event out,
-					InstanceVars var) {
+					InstanceVars var) throws RequiredVarException {
 				return (getRequiredVar(var, "testVar", Integer.class) > 2);
 			}
 

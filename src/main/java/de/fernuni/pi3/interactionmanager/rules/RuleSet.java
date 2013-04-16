@@ -56,7 +56,15 @@ public class RuleSet {
 
 			} catch (Exception e) {
 				String errorMsg = "Could not apply rule " + rule + " for event " + incomingEvent + ": " + e.getMessage();
-				logger.error(errorMsg, e);
+				
+				if (e instanceof RequiredVarException) {
+					// no stacktrace required
+					logger.error(errorMsg);
+				} else {
+					// unexpected error
+					logger.error(errorMsg, e);
+				}
+				
 				
 				// TODO: replace hard coded error event for SensingEventEngine by a configurable one per appType
 				Event errorEvent = new Event("recommendation");

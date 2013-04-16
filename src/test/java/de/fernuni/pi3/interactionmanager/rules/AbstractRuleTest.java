@@ -43,7 +43,7 @@ public abstract class AbstractRuleTest {
 	}
 
 	@Test
-	public void testRule() {
+	public void testRule() throws Exception {
 
 		for (RuleTestData data : testData) {
 

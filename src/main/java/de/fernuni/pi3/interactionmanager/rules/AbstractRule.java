@@ -10,7 +10,7 @@ abstract public class AbstractRule implements Rule {
 	private static Logger logger = Logger.getLogger(AbstractRule.class);
 
 	@Override
-	public void processEvent(Event in, Event out, InstanceVars var) {
+	public void processEvent(Event in, Event out, InstanceVars var) throws RequiredVarException{
 		if (!ruleCondition(in, out, var)) {
 			logger.debug("Rule condition is false -> skipping body of rule " + this);
 			return;
@@ -21,9 +21,9 @@ abstract public class AbstractRule implements Rule {
 	}
 
 	abstract protected boolean ruleCondition(Event in, Event out,
-			InstanceVars var);
+			InstanceVars var) throws RequiredVarException;
 
-	abstract protected void ruleBody(Event in, Event out, InstanceVars var);
+	abstract protected void ruleBody(Event in, Event out, InstanceVars var) throws RequiredVarException;
 
 	@Override
 	public String toString() {
@@ -50,7 +50,7 @@ abstract public class AbstractRule implements Rule {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected <T> T getRequiredVar(InstanceVars var, String varName, Class<T> clazz) {
+	protected <T> T getRequiredVar(InstanceVars var, String varName, Class<T> clazz) throws RequiredVarException {
 		if (! var.containsKey(varName)) {
 			throw new RequiredVarException("Required instance var '" + varName + "' not set in rule " + this);
 		}

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class TimeShortageRedRule extends AbstractSensingEventManagerRule {
@@ -14,7 +15,7 @@ public class TimeShortageRedRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("duration")
 				&& (var.get("TOPIC_APPLICATION") != null) && ((Double) in
 				.getProperty("timePast")

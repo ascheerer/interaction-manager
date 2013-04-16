@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
 public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
@@ -16,7 +17,7 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		return (in.getName().equals("duration")
 				&& (getRequiredVar(var, "TEMP_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_IDEA_COUNT)
 				&& "10".equals(var.get("TOPIC_APPLICATION"))
