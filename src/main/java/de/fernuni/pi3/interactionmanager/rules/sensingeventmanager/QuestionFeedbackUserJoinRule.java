@@ -29,6 +29,7 @@ public class QuestionFeedbackUserJoinRule extends
 		out.setProperty("eventId", 3);
 		out.setProperty("type", "question");
 		out.setProperty("headline", "Möchten Sie eine Frage stellen?");
+		out.setProperty("participantId", in.getProperty("participantId"));
 	}
 
 }
