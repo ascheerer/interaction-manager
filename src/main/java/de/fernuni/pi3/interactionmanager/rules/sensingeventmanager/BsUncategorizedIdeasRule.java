@@ -32,7 +32,7 @@ public class BsUncategorizedIdeasRule extends AbstractSensingEventManagerRule {
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 1);
+		out.setProperty("eventId", 46);
 		out.setProperty("headline",
 				"Es wurden noch nicht alle Ideen kategorisiert.");
 		out.setProperty("text", "Was wollen Sie tun?");

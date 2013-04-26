@@ -31,7 +31,7 @@ public class BsNotEnoughCategorizationsRule extends
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 1);
+		out.setProperty("eventId", 45);
 		out.setProperty("headline",
 				"Die Meeting-Teilnehmer kategorisieren keine weiterenIdeen.");
 		out.setProperty("text", "Was wollen Sie tun?");

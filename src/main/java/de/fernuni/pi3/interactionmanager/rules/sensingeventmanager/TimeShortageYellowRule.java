@@ -31,7 +31,7 @@ public class TimeShortageYellowRule extends AbstractSensingEventManagerRule {
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("colorChanger");
-		out.setProperty("eventId", 2);
+		out.setProperty("eventId", 30);
 		out.setProperty("type", "yellow");
 	}
 }

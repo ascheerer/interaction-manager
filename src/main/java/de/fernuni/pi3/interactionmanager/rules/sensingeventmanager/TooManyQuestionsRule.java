@@ -29,7 +29,7 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 1);
+		out.setProperty("eventId", 42);
 		out.setProperty("headline",
 				"Die maximale Anzahl der gestellten Fragen wurde überschritten.");
 		out.setProperty("text",

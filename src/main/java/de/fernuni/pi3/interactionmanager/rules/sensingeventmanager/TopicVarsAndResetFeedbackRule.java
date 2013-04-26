@@ -35,7 +35,7 @@ public class TopicVarsAndResetFeedbackRule extends
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("feedback");
-		out.setProperty("eventId", 3);
+		out.setProperty("eventId", 20);
 		out.setProperty("type", "reset");
 	}
 

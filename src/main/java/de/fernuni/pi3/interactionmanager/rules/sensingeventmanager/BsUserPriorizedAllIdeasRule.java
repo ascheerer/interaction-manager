@@ -26,7 +26,7 @@ public class BsUserPriorizedAllIdeasRule extends AbstractSensingEventManagerRule
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 1);
+		out.setProperty("eventId", 44);
 		out.setProperty("headline",
 				"Die Meeting-Teilnehmer haben alle Ideen kategorisiert.");
 		out.setProperty("text",

@@ -30,7 +30,7 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 1);
+		out.setProperty("eventId", 43);
 		out.setProperty("headline",
 				"Die Meeting-Teilnehmer generieren keine neuen Ideen.");
 		out.setProperty("text", "Was wollen Sie tun?");

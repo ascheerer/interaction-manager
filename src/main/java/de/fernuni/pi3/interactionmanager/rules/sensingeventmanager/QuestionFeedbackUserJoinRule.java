@@ -26,7 +26,7 @@ public class QuestionFeedbackUserJoinRule extends
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("feedback");
-		out.setProperty("eventId", 3);
+		out.setProperty("eventId", 22);
 		out.setProperty("type", "question");
 		out.setProperty("headline", "Möchten Sie eine Frage stellen?");
 		out.setProperty("participantId", in.getProperty("participantId"));
