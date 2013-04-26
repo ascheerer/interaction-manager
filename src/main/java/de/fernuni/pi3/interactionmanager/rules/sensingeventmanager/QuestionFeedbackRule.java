@@ -25,6 +25,7 @@ public class QuestionFeedbackRule extends AbstractSensingEventManagerRule {
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("feedback");
 		out.setProperty("eventId", 21);
+		out.setProperty("reActivation", true);
 		out.setProperty("type", "question");
 		out.setProperty("headline", "Möchten Sie eine Frage stellen?");
 	}
