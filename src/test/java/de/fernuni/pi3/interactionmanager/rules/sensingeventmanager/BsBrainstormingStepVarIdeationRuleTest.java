@@ -23,6 +23,7 @@ public class BsBrainstormingStepVarIdeationRuleTest extends AbstractRuleTest {
 		Event expectedEvent = new Event();
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.put("BRAINSTORMING_STEP", "ideation");
+		expectedInstanceVars.put("TEMP_IDEA_COUNT", 0);
 		
 		addTestData(givenEvent, givenInstanceVars, expectedEvent, expectedInstanceVars);
 	}

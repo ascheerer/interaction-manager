@@ -21,6 +21,7 @@ public class BsBraintormingStepVarIdeationRule extends AbstractSensingEventManag
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
 		var.put("BRAINSTORMING_STEP", "ideation");
+		var.put("TEMP_IDEA_COUNT", 0);
 	}
 
 }
