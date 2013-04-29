@@ -26,6 +26,7 @@ public class BsResetIdeaCountVarRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
 		var.put("TEMP_IDEA_COUNT", 0);
+		var.put("INITAL_RUN", false);
 	}
 
 }

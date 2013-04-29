@@ -15,7 +15,7 @@ public class BsAddIdeaVarRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("BsAddIdea")
+		return (in.getName().equals("BsServerNewIdea")
 				&& "brainstorming".equals(in.getCustomVar("appName")) && "ideation"
 					.equals(var.get("BRAINSTORMING_STEP")));
 	}
