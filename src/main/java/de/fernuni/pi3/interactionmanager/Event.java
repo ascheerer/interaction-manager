@@ -2,13 +2,15 @@ package de.fernuni.pi3.interactionmanager;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 
 public final class Event {
 
 	private static final String DEFAULT_VALUE = "Unknown";
-	
+
+	private String id;
 	private String name;
 	private String appType;
 	private String appInstanceId;
@@ -16,6 +18,7 @@ public final class Event {
 	private Map<String, Object> customVars;
 
 	public Event(String eventName) {
+		id = UUID.randomUUID().toString();
 		name = eventName;
 		appType = DEFAULT_VALUE;
 		appInstanceId = "unknownInstance";
@@ -31,6 +34,10 @@ public final class Event {
 		return name;
 	}
 	
+	public String getId() {
+		return id;
+	}
+		
 	public void setName(String name) {
 		this.name = name;
 	}
