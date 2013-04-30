@@ -22,11 +22,12 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 		return (in.getName().equals("duration")
 				&& "10".equals(var.get("TOPIC_APPLICATION"))
 				&& "ideation".equals(var.get("BRAINSTORMING_STEP")) && (getRequiredVar(
-					var, "TEMP_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_IDEA_COUNT));
+					var, "INITAL_RUN", Boolean.class) == false));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
+		var.put("INITAL_RUN", true);
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
