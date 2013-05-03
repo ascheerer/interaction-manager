@@ -30,8 +30,6 @@ public class TopicVarsAndResetFeedbackRule extends
 			var.put("TOPIC_START", 0.0);
 		}
 
-		var.put("QUESTION_COUNT", 0);
-
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("feedback");

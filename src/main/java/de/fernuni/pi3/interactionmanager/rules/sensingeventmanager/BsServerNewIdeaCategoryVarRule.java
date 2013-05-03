@@ -15,9 +15,8 @@ public class BsServerNewIdeaCategoryVarRule extends AbstractSensingEventManagerR
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("brainstorming")
-				&& "clustering".equals(in.getProperty("viewName")) && "BsServerNewIdeaCategory"
-					.equals(in.getProperty("eventType")));
+		return (in.getName().equals("BsServerNewIdeaCategory") && in.getCustomVar("appName").equals("brainstorming")
+				&& "clustering".equals(var.get("BRAINSTORMING_STEP")));
 	}
 
 	@Override

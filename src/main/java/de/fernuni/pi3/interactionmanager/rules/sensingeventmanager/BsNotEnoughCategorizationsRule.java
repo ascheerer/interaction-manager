@@ -23,17 +23,19 @@ public class BsNotEnoughCategorizationsRule extends
 		return (in.getName().equals("duration")
 				&& "clustering".equals(var.get("BRAINSTORMING_STEP"))
 				&& "10".equals(var.get("TOPIC_APPLICATION")) && (getRequiredVar(
-					var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT));
+					var, "TEMP_CATEGORIZED_IDEA_COUNT", Integer.class) == SensingEventManagerConsts.MIN_CATEGORIZED_IDEA_COUNT) && (getRequiredVar(
+					var, "INITAL_RUN", Boolean.class) == false));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
+		var.put("INITAL_RUN", true);
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
 		out.setProperty("eventId", 45);
 		out.setProperty("headline",
-				"Die Meeting-Teilnehmer kategorisieren keine weiterenIdeen.");
+				"Die Meeting-Teilnehmer kategorisieren keine weiteren Ideen.");
 		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
 		options.put("Wechseln zur nächsten Phase Clustering Result",

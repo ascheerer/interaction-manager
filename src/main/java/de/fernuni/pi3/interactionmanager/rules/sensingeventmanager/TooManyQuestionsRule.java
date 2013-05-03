@@ -21,7 +21,7 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 			throws RequiredVarException {
 		return (in.getName().equals("feedbackAssistant")
 				&& "Planning".equals(var.get("MEETING_TYPE")) && (getRequiredVar(
-				var, "QUESTION_COUNT", Integer.class) > 10));
+				var, "QUESTION_COUNT", Integer.class) > SensingEventManagerConsts.MAX_QUESTIONS_COUNT));
 	}
 
 	@Override

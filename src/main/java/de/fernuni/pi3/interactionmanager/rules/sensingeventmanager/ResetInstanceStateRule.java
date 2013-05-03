@@ -21,5 +21,6 @@ public class ResetInstanceStateRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
 		var.clear();
+		var.put("QUESTION_COUNT", 0);
 	}
 }

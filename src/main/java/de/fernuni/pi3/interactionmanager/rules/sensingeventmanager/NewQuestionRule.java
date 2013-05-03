@@ -26,12 +26,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) throws RequiredVarException {
 		// increase var QUESTION_COUNT
-		if (var.get("QUESTION_COUNT") != null) {
-			var.put("QUESTION_COUNT",
-					getRequiredVar(var,"QUESTION_COUNT",Integer.class) + 1);
-		} else {
-			var.put("QUESTION_COUNT", 1);
-		}
+		incrVar(var, "QUESTION_COUNT");
 
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());

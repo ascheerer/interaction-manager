@@ -27,6 +27,7 @@ public class BsResetCategorizedIdeaCountVarRule extends
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
 		var.put("TEMP_CATEGORIZED_IDEA_COUNT", 0);
+		var.put("INITAL_RUN", false);
 	}
 
 }
