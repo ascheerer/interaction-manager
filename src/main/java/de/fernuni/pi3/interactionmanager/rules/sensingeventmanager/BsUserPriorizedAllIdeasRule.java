@@ -32,11 +32,10 @@ public class BsUserPriorizedAllIdeasRule extends AbstractSensingEventManagerRule
 		out.setProperty("text",
 				"Was möchten Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Wechseln zur nächsten Phase Clustering Result", "clusteringResult");
-		options.put("Wechseln zur vorherigen Phase Ideen sammeln zurück und lassen Sie neue Ideen erzeugen", "ideation");
-		options.put("Eine Nachricht an alle Teilnehmer senden","sendMessage");
-		options.put("Meeting beenden","quit");
-		options.put("Abbrechen","cancel");
+		options.put("Wechseln zur nächsten Phase Clustering Result", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.bsClusteringResult");
+		options.put("Eine Nachricht an alle Teilnehmer senden","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.sendMessage");
+		options.put("Meeting beenden","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
+		options.put("Abbrechen","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
 		out.setProperty("options", options);
 	}
 

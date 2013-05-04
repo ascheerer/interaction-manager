@@ -39,10 +39,10 @@ public class BsNotEnoughCategorizationsRule extends
 		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
 		options.put("Wechseln zur nächsten Phase Clustering Result",
-				"clusteringResult");
-		options.put("Eine Nachricht an alle Teilnehmer senden", "sendMessage");
-		options.put("Meeting beenden", "quit");
-		options.put("Abbrechen", "cancel");
+				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.bsClusteringResult");
+		options.put("Eine Nachricht an alle Teilnehmer senden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.sendMessage");
+		options.put("Meeting beenden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
+		options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
 		out.setProperty("options", options);
 	}
 

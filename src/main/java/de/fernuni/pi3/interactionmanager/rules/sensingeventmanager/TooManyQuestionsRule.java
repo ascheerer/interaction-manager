@@ -35,9 +35,9 @@ public class TooManyQuestionsRule extends AbstractSensingEventManagerRule {
 		out.setProperty("text",
 				"Wollen Sie den Wert zurücksetzen und fortfahren?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Fortfahren", "resetCount");
-		options.put("Meeting beenden", "quit");
-		options.put("Abbrechen", "cancel");
+		options.put("Zählung zurücksetzen und fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.resetCount");
+		options.put("Meeting beenden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
+		options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
 		out.setProperty("options", options);
 	}
 

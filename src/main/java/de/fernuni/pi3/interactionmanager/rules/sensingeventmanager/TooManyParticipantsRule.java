@@ -35,8 +35,8 @@ public class TooManyParticipantsRule extends AbstractSensingEventManagerRule {
 		out.setProperty("text",
 				"Wollen Sie mit dem Meeting fortfahren oder abbrechen?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Fortfahren", "continue");
-		options.put("Abbrechen", "cancel");
+		options.put("Fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
+		options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
 		out.setProperty("options", options);
 	}
 

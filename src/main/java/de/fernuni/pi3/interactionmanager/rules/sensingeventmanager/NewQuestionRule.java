@@ -42,7 +42,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 						+ in.getProperty("participantName")
 						+ " auf und bitten Sie den Teilnehmer, die Frage zu stellen.");
 		HashMap<String, String> options = new HashMap<String,String>();
-		options.put("Fortfahren", "continue");
+		options.put("Fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
 		out.setProperty("options", options);
 	}
 }
