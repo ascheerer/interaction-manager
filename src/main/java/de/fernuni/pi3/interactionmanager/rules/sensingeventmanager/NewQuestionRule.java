@@ -35,7 +35,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 		out.setProperty(
 				"headline",
 				"Der Teilnehmer "
-						+ in.getProperty("participantName") + " ist einverstanden);
+						+ in.getProperty("participantName") + " ist einverstanden");
 		out.setProperty(
 				"text",
 				"Das Ergebnis der Priorisierung wurde von dem Teilnehmer positiv abgestimmt.");
