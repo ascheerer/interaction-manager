@@ -15,9 +15,7 @@ public class BsServerAddIdeaToCategoryVarRule extends AbstractSensingEventManage
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("brainstorming")
-				&& "clustering".equals(in.getProperty("viewName")) && "BsServerAddIdeaToCategory"
-					.equals(in.getProperty("eventType")) && "null".equals(in.getProperty("oldCategoryId")));
+		return (in.getName().equals("BsServerAddIdeaToCategory") && in.getCustomVar("appName").equals("brainstorming") && in.getProperty("oldCategoryId").equals("undefined") && "clustering".equals(var.get("BRAINSTORMING_STEP")));
 	}
 
 	@Override

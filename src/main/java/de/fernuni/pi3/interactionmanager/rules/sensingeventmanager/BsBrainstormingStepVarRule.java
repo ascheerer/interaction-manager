@@ -16,10 +16,13 @@ public class BsBrainstormingStepVarRule extends AbstractSensingEventManagerRule 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("BsSwitchToNextIdeationView") && in.getCustomVar("appName").equals("brainstorming"));
+		
+		//  && (in.getCustomVar("isNewProcesFlowStepTheLastStep") (Boolean)) == false
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
 		var.put("BRAINSTORMING_STEP", in.getProperty("currentFlowStepName"));
+		var.put("INITAL_RUN", true);
 	}
 }

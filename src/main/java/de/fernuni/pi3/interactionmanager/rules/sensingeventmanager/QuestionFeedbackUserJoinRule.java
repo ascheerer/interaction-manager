@@ -11,7 +11,7 @@ public class QuestionFeedbackUserJoinRule extends
 
 	@Override
 	public int getIndex() {
-		return 7;
+		return 35;
 	}
 
 	@Override
@@ -31,5 +31,5 @@ public class QuestionFeedbackUserJoinRule extends
 		out.setProperty("headline", "Möchten Sie eine Frage stellen?");
 		out.setProperty("participantId", in.getProperty("participantId"));
 	}
-
+	
 }

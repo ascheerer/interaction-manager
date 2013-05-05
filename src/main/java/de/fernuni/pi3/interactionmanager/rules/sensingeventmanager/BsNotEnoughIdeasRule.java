@@ -36,11 +36,13 @@ public class BsNotEnoughIdeasRule extends AbstractSensingEventManagerRule {
 				"Die Meeting-Teilnehmer generieren keine neuen Ideen.");
 		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Wechseln zur nächsten Phase Clustering", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.bsClustering");
-		options.put("Eine Nachricht an alle Teilnehmer senden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.sendMessage");
-		options.put("Meeting beenden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
-		options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
-		out.setProperty("options", options);
+										options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
+		options.put("Meeting beenden","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
+				options.put("Brainstorming beenden","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.backToAgenda");
+						options.put("Eine Nachricht an alle Teilnehmer senden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.sendMessage");
+				options.put("Wechseln zur nächsten Phase",
+				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.bsNextStep");
+						out.setProperty("options", options);
 	}
 
 }

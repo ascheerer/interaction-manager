@@ -19,7 +19,7 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
 		return (in.getName().equals("feedbackAssistant")
-				&& "question".equals(in.getProperty("feedbackType")) && ((Double) in
+				&& "vote".equals(in.getProperty("feedbackType")) && ((Double) in
 					.getProperty("feedbackAnswerRating")) == 1.0);
 	}
 
@@ -34,13 +34,11 @@ public class NewQuestionRule extends AbstractSensingEventManagerRule {
 		out.setProperty("eventId", 1);
 		out.setProperty(
 				"headline",
-				"Neue eingehende Frage von "
-						+ in.getProperty("participantName"));
+				"Der Teilnehmer "
+						+ in.getProperty("participantName") + " ist einverstanden);
 		out.setProperty(
 				"text",
-				"Bitte rufen Sie "
-						+ in.getProperty("participantName")
-						+ " auf und bitten Sie den Teilnehmer, die Frage zu stellen.");
+				"Das Ergebnis der Priorisierung wurde von dem Teilnehmer positiv abgestimmt.");
 		HashMap<String, String> options = new HashMap<String,String>();
 		options.put("Fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
 		out.setProperty("options", options);

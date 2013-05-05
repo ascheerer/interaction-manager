@@ -6,31 +6,36 @@ import org.springframework.stereotype.Service;
 
 import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
+import de.fernuni.pi3.interactionmanager.rules.RequiredVarException;
 
 @Service
-public class BsUserPriorizedAllIdeasRule extends AbstractSensingEventManagerRule {
+public class BsNotEnoughPriorisizedIdeasRule extends
+		AbstractSensingEventManagerRule {
 
 	@Override
 	public int getIndex() {
-		return 27;
+		return 28;
 	}
 
 	@Override
-	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("BsUserPriorizedAllIdeas") && 
-in.getCustomVar("appName").equals("brainstorming") && "priorization".equals(var.get("BRAINSTORMING_STEP")));
+	protected boolean ruleCondition(Event in, Event out, InstanceVars var)
+			throws RequiredVarException {
+		return (in.getName().equals("duration")
+				&& "priorization".equals(var.get("BRAINSTORMING_STEP"))
+				&& "10".equals(var.get("TOPIC_APPLICATION")) 
+				&& (getRequiredVar(var, "INITAL_RUN", Boolean.class) == false));			
 	}
-
+	
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
+		var.put("INITAL_RUN", true);
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("recommendation");
-		out.setProperty("eventId", 44);
+		out.setProperty("eventId", 45);
 		out.setProperty("headline",
-				"Die Meeting-Teilnehmer haben alle Ideen priorisiert.");
-		out.setProperty("text",
-				"Was möchten Sie tun?");
+				"Die Meeting-Teilnehmer priorisieren keine weiteren Ideen.");
+		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
 										options.put("Abbrechen", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.cancel");
 		options.put("Meeting beenden","Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
@@ -38,6 +43,7 @@ in.getCustomVar("appName").equals("brainstorming") && "priorization".equals(var.
 						options.put("Eine Nachricht an alle Teilnehmer senden", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.sendMessage");
 				options.put("Wechseln zur nächsten Phase",
 				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.bsNextStep");
+
 		out.setProperty("options", options);
 	}
 

@@ -6,24 +6,21 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
 @Service
-public class BsServerRemoveIdeaFromCategoryVarRule extends AbstractSensingEventManagerRule {
+public class BsServerMoveIdeaToOtherCategoryVarRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	public int getIndex() {
-		return 26;
+		return 25;
 	}
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("brainstorming")
-				&& "clustering".equals(in.getProperty("viewName")) && "BsServerAddIdeaToCategory"
-					.equals(in.getProperty("eventType")) && "null".equals(in.getProperty("CategoryId")));
+		return (in.getName().equals("BsServerAddIdeaToCategory") && in.getCustomVar("appName").equals("brainstorming") && "clustering".equals(var.get("BRAINSTORMING_STEP")));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
-		decrVar(var, "TEMP_CATEGORIZED_IDEA_COUNT");
-		decrVar(var, "CATEGORIZED_IDEA_COUNT");
+		incrVar(var, "TEMP_CATEGORIZED_IDEA_COUNT");
 	}
 	
 }

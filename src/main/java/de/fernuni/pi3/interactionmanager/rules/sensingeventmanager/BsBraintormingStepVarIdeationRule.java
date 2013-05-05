@@ -23,6 +23,7 @@ public class BsBraintormingStepVarIdeationRule extends AbstractSensingEventManag
 		var.put("BRAINSTORMING_STEP", "ideation");
 		var.put("TEMP_IDEA_COUNT", 0);
 		var.put("TEMP_CATEGORIZED_IDEA_COUNT", 0);
+		var.put("TEMP_PRIORIZED_IDEA_COUNT", 0);
 		var.put("INITAL_RUN", true);
 	}
 

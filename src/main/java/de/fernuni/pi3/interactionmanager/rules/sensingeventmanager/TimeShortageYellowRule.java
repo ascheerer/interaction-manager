@@ -28,6 +28,7 @@ public class TimeShortageYellowRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
+		var.put("SHORTAGE_MESSAGE", false);
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("colorChanger");

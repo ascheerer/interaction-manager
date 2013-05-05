@@ -6,35 +6,28 @@ import de.fernuni.pi3.interactionmanager.Event;
 import de.fernuni.pi3.interactionmanager.InstanceVars;
 
 @Service
-public class TopicVarsAndResetFeedbackRule extends
-		AbstractSensingEventManagerRule {
+public class VoteFeedbackRule extends AbstractSensingEventManagerRule {
 
 	@Override
 	public int getIndex() {
-		return 2;
+		return 7;
 	}
+
 
 	@Override
 	protected boolean ruleCondition(Event in, Event out, InstanceVars var) {
-		return (in.getName().equals("topic"));
+		return (in.getName().equals("BsSwitchToNextIdeationView") && in.getCustomVar("appName").equals("brainstorming") && "priorization-result".equals(var.get("BRAINSTORMING_STEP")));
 	}
 
 	@Override
 	protected void ruleBody(Event in, Event out, InstanceVars var) {
-		var.put("TOPIC_APPLICATION", in.getProperty("topicApplication"));
-		var.put("TOPIC_DURATION", in.getProperty("topicDuration"));
-
-		if (var.get("TIME_PAST") != null) {
-			var.put("TOPIC_START", var.get("TIME_PAST"));
-		} else {
-			var.put("TOPIC_START", 0.0);
-		}
-		var.put("SHORTAGE_MESSAGE", false);
 		out.setAppType(in.getAppType());
 		out.setAppInstanceId(in.getAppInstanceId());
 		out.setName("feedback");
-		out.setProperty("eventId", 20);
-		out.setProperty("type", "reset");
+		out.setProperty("eventId", 23);
+		out.setProperty("type", "vote");
+		out.setProperty("headline", "Sind Sie mit dem Ergebnis einverstanden?");
+		out.setProperty("participantId", in.getProperty("participantId"));
 	}
 
 }
