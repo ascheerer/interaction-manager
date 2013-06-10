@@ -34,7 +34,7 @@ public class BsNotEnoughPriorisizedIdeasRule extends
 		out.setName("recommendation");
 		out.setProperty("eventId", 45);
 		out.setProperty("headline",
-				"Die Meeting-Teilnehmer generieren keine neuen Ideen.");
+				"Die Meeting-Teilnehmer priorisieren keine weiteren Ideen.");
 		out.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
 										options.put("Fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");

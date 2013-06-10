@@ -8,3 +8,7 @@ target/
 
 # start.sh logfile
 interaction-manager.log
+
+.dropbox
+/Icon
+/.gitignore
