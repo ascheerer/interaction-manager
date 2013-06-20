@@ -14,7 +14,7 @@ public class DefaultRuleTest extends AbstractRuleTest {
 		inEvent.setAppInstanceId("MyApp1");
 		inEvent.setName("TestEvent");
 		
-		Event expectedEvent = new Event();
+		Event expectedEvent = createTestEvent();
 		expectedEvent.setAppType(inEvent.getAppType());
 		expectedEvent.setAppInstanceId(inEvent.getAppInstanceId());
 		expectedEvent.setName(inEvent.getName());

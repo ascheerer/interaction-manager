@@ -22,7 +22,7 @@ public class EventTest {
 	private static final String APP_TYPE = EventTest.class
 			.getName();
 	private final static String TEST_EVENT_JSON = "{\"id\":\"__ID__\",\"name\":\"testevent\","
-			+ "\"appType\":\"de.fernuni.pi3.interactionmanager.InteractionManagerEventTest\","
+			+ "\"appType\":\"de.fernuni.pi3.interactionmanager.EventTest\","
 			+ "\"appInstanceId\":\"appInstanceId\","
 			+ "\"properties\":{\"testPropKey\":\"testPropValue\",\"varKeyMap\":{\"varSubKeyMap\":\"varSubValueMap\"}},"
 			+ "\"customVars\":{\"testVarKey\":\"testVarValue\",\"varKeyMap\":{\"varSubKeyMap\":\"varSubValueMap\"}}}";
