@@ -9,7 +9,7 @@ import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public class BsServerAddIdeaToCategoryVarRuleTest extends AbstractRuleTest {
 
-	private static final String inEventJson = "{\"name\":\"brainstorming\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering\",\"eventType\":\"BsServerAddIdeaToCategory\",\"oldCategoryId\":\"null\"},\"customVars\":{}}";
+	private static final String inEventJson = "{\"name\":\"BsServerAddIdeaToCategory\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering\",\"eventType\":\"BsServerAddIdeaToCategory\",\"oldCategoryId\":\"undefined\"},\"customVars\":{\"appName\":\"brainstorming\"}}";
 
 	@Override
 	@Before
@@ -17,7 +17,8 @@ public class BsServerAddIdeaToCategoryVarRuleTest extends AbstractRuleTest {
 		// given
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
-
+		givenInstanceVars.put("BRAINSTORMING_STEP", "clustering");
+		
 		// expected
 		Event expectedEvent = new Event();
 
@@ -35,8 +36,10 @@ public class BsServerAddIdeaToCategoryVarRuleTest extends AbstractRuleTest {
 		InstanceVars givenInstanceVars1 = new InstanceVars();
 		givenInstanceVars1.put("TEMP_CATEGORIZED_IDEA_COUNT", 1);
 		givenInstanceVars1.put("CATEGORIZED_IDEA_COUNT", 1);
+		givenInstanceVars1.put("BRAINSTORMING_STEP", "clustering");
 		
 		InstanceVars expectedInstanceVars1 = new InstanceVars();
+		expectedInstanceVars1.putAll(givenInstanceVars1);
 		expectedInstanceVars1.put("TEMP_CATEGORIZED_IDEA_COUNT", 2);
 		expectedInstanceVars1.put("CATEGORIZED_IDEA_COUNT", 2);
 		addTestData(givenEvent, givenInstanceVars1, expectedEvent,

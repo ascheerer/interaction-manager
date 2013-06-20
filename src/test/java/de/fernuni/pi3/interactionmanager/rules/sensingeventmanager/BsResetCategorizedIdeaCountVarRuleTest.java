@@ -21,13 +21,15 @@ public class BsResetCategorizedIdeaCountVarRuleTest extends AbstractRuleTest {
 		givenInstanceVars.put("TOPIC_APPLICATION", "10");
 		givenInstanceVars.put("BRAINSTORMING_STEP", "clustering");
 
+		
 		// expected
 		Event expectedEvent = new Event();
 
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.putAll(givenInstanceVars);
 		expectedInstanceVars.put("TEMP_CATEGORIZED_IDEA_COUNT", 0);
-
+		expectedInstanceVars.put("INITAL_RUN", false);
+		
 		addTestData(givenEvent, givenInstanceVars, expectedEvent,
 				expectedInstanceVars);
 	}

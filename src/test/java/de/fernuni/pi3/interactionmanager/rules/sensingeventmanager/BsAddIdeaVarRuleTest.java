@@ -12,7 +12,7 @@ public class BsAddIdeaVarRuleTest extends AbstractRuleTest {
 	//when((in.customVars.appName == "brainstorming" AND (BRAINSTORMING_STEP = "ideation")) AND (in.name == "BsAddIdea")).setVar(IDEA_COUNT++)
 
 	
-	private static final String inEventJson = "{\"name\":\"BsAddIdea\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"appName\":\"brainstorming\"}}"; 
+	private static final String inEventJson = "{\"name\":\"BsServerNewIdea\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{},\"customVars\":{\"appName\":\"brainstorming\"}}"; 
 	
 	@Override
 	@Before
