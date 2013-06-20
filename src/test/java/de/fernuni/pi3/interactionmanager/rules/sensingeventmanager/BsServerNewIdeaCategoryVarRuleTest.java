@@ -13,7 +13,7 @@ public class BsServerNewIdeaCategoryVarRuleTest extends AbstractRuleTest {
 	// "clustering") AND (in.eventType ==
 	// "BsServerNewIdeaCategory")).setVar(CATEGORY_COUNT++)
 
-	private static final String inEventJson = "{\"name\":\"brainstorming\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering\",\"eventType\":\"BsServerNewIdeaCategory\"},\"customVars\":{}}";
+	private static final String inEventJson = "{\"name\":\"BsServerNewIdeaCategory\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering\",\"eventType\":\"BsServerNewIdeaCategory\"},\"customVars\":{\"appName\":\"brainstorming\"}}";
 
 	@Override
 	@Before
@@ -21,7 +21,8 @@ public class BsServerNewIdeaCategoryVarRuleTest extends AbstractRuleTest {
 		// given
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
-
+		givenInstanceVars.put("BRAINSTORMING_STEP", "clustering");
+		
 		// expected
 		Event expectedEvent = new Event();
 

@@ -21,11 +21,12 @@ public class QuestionFeedbackRuleTest extends AbstractRuleTest {
 		givenInstanceVars.put("MEETING_TYPE", "Planning");
 
 		// expected
-		Event expectedEvent = new Event();
+		Event expectedEvent = createTestEvent();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("feedback");
-		expectedEvent.setProperty("eventId", 3);
+		expectedEvent.setProperty("eventId", 21);
+		expectedEvent.setProperty("reActivation", true);
 		expectedEvent.setProperty("type", "question");
 		expectedEvent.setProperty("headline", "Möchten Sie eine Frage stellen?");
 

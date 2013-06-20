@@ -14,6 +14,8 @@ import de.fernuni.pi3.interactionmanager.rules.Rule;
 
 public abstract class AbstractRuleTest {
 
+	private static final String ID_STRING = "__TESTID__";
+
 	private class RuleTestData {
 		Event givenEvent;
 		InstanceVars givenInstanceVars;
@@ -38,7 +40,7 @@ public abstract class AbstractRuleTest {
 			data.expectedEvent = expectedEvent;
 		}
 		data.expectedInstanceVars = expectedInstanceVars;
-		
+
 		testData.add(data);
 	}
 
@@ -56,14 +58,21 @@ public abstract class AbstractRuleTest {
 				Assert.assertTrue("No outgoing event expected",
 						outEvent.isEmpty());
 			} else {
-				Assert.assertEquals("Unexpected output event",
-						data.expectedEvent.toJson(), outEvent.toJson());
+				Assert.assertEquals(
+						"Unexpected output event",
+						data.expectedEvent.toJson().replace(ID_STRING,
+								outEvent.getId()), outEvent.toJson());
 			}
 
 			// assert instance vars
 			Assert.assertEquals("Unexpected instance vars",
 					data.expectedInstanceVars, data.givenInstanceVars);
 		}
+	}
+
+	protected static Event createTestEvent() {
+		String json = "{\"id\":\"" + ID_STRING + "\",\"name\":\"Unknown\",\"appType\":\"Unknown\",\"appInstanceId\":\"unknownInstance\",\"properties\":{},\"customVars\":{}}";
+		return Event.fromJson(json);
 	}
 
 	abstract protected Rule getRule();

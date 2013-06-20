@@ -38,11 +38,11 @@ public class TimeShortageRedRuleTest extends AbstractRuleTest {
 		givenInstanceVars1.put("TOPIC_START", 10000.0);
 
 		// expected
-		Event expectedEvent = new Event();
+		Event expectedEvent = createTestEvent();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("colorChanger");
-		expectedEvent.setProperty("eventId", 2);
+		expectedEvent.setProperty("eventId", 31);
 		expectedEvent.setProperty("type", "red");
 		
 		InstanceVars expectedInstanceVars1 = new InstanceVars();

@@ -35,9 +35,8 @@ public class RuleSetTest {
 		Assert.assertEquals(1, errorEvent.getProperty("eventId"));
 		Assert.assertEquals(testEvent.getAppType(), errorEvent.getAppType());
 		Assert.assertEquals(testEvent.getAppInstanceId(), errorEvent.getAppInstanceId());
-		Assert.assertEquals("Fehler beim Anwenden der Regel " + testRule + " auf das Event " + testEvent, errorEvent.getProperty("headline"));
-		Assert.assertTrue(((String)errorEvent.getProperty("text")).startsWith("InteractionManager Fehlermeldung: Could not apply rule " + testRule));
-		Assert.assertTrue(((String)errorEvent.getProperty("text")).contains("TestFallbackErrorEventMsg"));
+		Assert.assertEquals("Fehler beim Anwenden der Regel " + testRule + " auf das Event " + testEvent.getName() + " (id=" + testEvent.getId()+ ")", errorEvent.getProperty("headline"));
+		Assert.assertEquals("Die genaue Fehlermeldung entnehmen Sie bitte dem Logfile des InteractionManagers.",(String)errorEvent.getProperty("text"));
 	}
 
 	private Rule getFailingRule() {

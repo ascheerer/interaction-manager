@@ -20,18 +20,18 @@ public class TopicVarsAndResetFeedbackRuleTest extends AbstractRuleTest {
 		InstanceVars givenInstanceVars = new InstanceVars();
 		
 		// expected 
-		Event expectedEvent = new Event();
+		Event expectedEvent = createTestEvent();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("feedback");
-		expectedEvent.setProperty("eventId",3);
+		expectedEvent.setProperty("eventId",20);
 		expectedEvent.setProperty("type","reset");
 		
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.put("TOPIC_APPLICATION", "12");
 		expectedInstanceVars.put("TOPIC_DURATION", 900000.0);
 		expectedInstanceVars.put("TOPIC_START", 0.0);
-		expectedInstanceVars.put("QUESTION_COUNT", 0);
+		expectedInstanceVars.put("SHORTAGE_MESSAGE", false);
 		
 		// test a: TIME_PAST not set before
 		addTestData(givenEvent, givenInstanceVars, expectedEvent, expectedInstanceVars);
