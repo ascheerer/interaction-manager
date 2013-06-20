@@ -9,18 +9,19 @@ import de.fernuni.pi3.interactionmanager.InstanceVars;
 import de.fernuni.pi3.interactionmanager.rules.AbstractRuleTest;
 import de.fernuni.pi3.interactionmanager.rules.Rule;
 
-public class BsUserPriorizedAllIdeasRuleTest extends AbstractRuleTest {
+public class BsUncategorizedIdeasRuleTest extends AbstractRuleTest {
 
-	private static final String inEventJson = "{\"name\":\"brainstorming\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering\",\"eventType\":\"BsUserPriorizedAllIdeas\"},\"customVars\":{}}";
-	
+	private static final String inEventJson = "{\"name\":\"brainstorming\",\"appType\":\"SensingEventManager\",\"appInstanceId\":\"50924677bbcdaaa713000001\",\"properties\":{\"viewName\":\"clustering-result\",\"eventType\":\"BsSwitchToNextIdeationView\"},\"customVars\":{}}";
+
 	@Override
 	@Before
 	public void setUpTestData() {
 		// given
 		Event givenEvent = Event.fromJson(inEventJson);
 		InstanceVars givenInstanceVars = new InstanceVars();
-		givenInstanceVars.put("NOT_MODIFIED", 1);
-		
+		givenInstanceVars.put("CATEGORIZED_IDEA_COUNT", 1);
+		givenInstanceVars.put("IDEA_COUNT", 3);
+		givenInstanceVars.put("TOPIC_APPLICATION", "10");
 
 		// expected
 		Event expectedEvent = new Event();
@@ -28,18 +29,15 @@ public class BsUserPriorizedAllIdeasRuleTest extends AbstractRuleTest {
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("recommendation");
 		expectedEvent.setProperty("eventId", 1);
-		expectedEvent
-				.setProperty("headline", "Die Meeting-Teilnehmer haben alle Ideen kategorisiert.");
-		expectedEvent
-				.setProperty(
-						"text",
-						"Was möchten Sie tun?");
+		expectedEvent.setProperty("headline",
+				"Es wurden noch nicht alle Ideen kategorisiert.");
+		expectedEvent.setProperty("text", "Was wollen Sie tun?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Wechseln zur nächsten Phase Clustering Result", "clusteringResult");
-		options.put("Wechseln zur vorherigen Phase Ideen sammeln zurück und lassen Sie neue Ideen erzeugen", "ideation");
-		options.put("Eine Nachricht an alle Teilnehmer senden","sendMessage");
-		options.put("Meeting beenden","quit");
-		options.put("Abbrechen","cancel");
+		options.put("Wechseln zur vorherigen Phase Clustering zurück",
+				"clusteringResult");
+		options.put("Eine Nachricht an alle Teilnehmer senden", "sendMessage");
+		options.put("Meeting beenden", "quit");
+		options.put("Abbrechen", "cancel");
 		expectedEvent.setProperty("options", options);
 
 		InstanceVars expectedInstanceVars = new InstanceVars();
@@ -51,6 +49,6 @@ public class BsUserPriorizedAllIdeasRuleTest extends AbstractRuleTest {
 
 	@Override
 	protected Rule getRule() {
-		return new BsUserPriorizedAllIdeasRule();
+		return new BsUncategorizedIdeasRule();
 	}
 }

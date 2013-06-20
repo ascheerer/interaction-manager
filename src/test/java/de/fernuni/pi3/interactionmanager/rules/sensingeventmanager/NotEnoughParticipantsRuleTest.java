@@ -26,22 +26,20 @@ public class NotEnoughParticipantsRuleTest extends AbstractRuleTest {
 		givenInstanceVars.put("TIME_PAST", 200000.0);
 
 		// expected
-		Event expectedEvent = createTestEvent();
+		Event expectedEvent = new Event();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("recommendation");
-		expectedEvent.setProperty("eventId", 41);
+		expectedEvent.setProperty("eventId", 1);
 		expectedEvent
 				.setProperty("headline", "Die maximale Anzahl der Teilnehmer wurde unterschritten.");
 		expectedEvent
 				.setProperty(
 						"text",
-						"Wollen Sie mit dem Meeting fortfahren oder es beenden?");
+						"Wollen Sie mit dem Meeting fortfahren oder abbrechen?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Meeting beenden",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
-		options.put("Fortfahren",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
+		options.put("Fortfahren", "continue");
+		options.put("Abbrechen", "cancel");
 		expectedEvent.setProperty("options", options);
 
 		InstanceVars expectedInstanceVars = new InstanceVars();

@@ -24,22 +24,20 @@ public class TooManyParticipantsRuleTest extends AbstractRuleTest {
 		givenInstanceVars.put("MEETING_TYPE", "Planning");
 
 		// expected
-		Event expectedEvent = createTestEvent();
+		Event expectedEvent = new Event();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("recommendation");
-		expectedEvent.setProperty("eventId", 40);
+		expectedEvent.setProperty("eventId", 1);
 		expectedEvent
 				.setProperty("headline", "Die maximale Anzahl der Teilnehmer wurde überschritten.");
 		expectedEvent
 				.setProperty(
 						"text",
-						"Wollen Sie mit dem Meeting fortfahren oder es beenden?");
+						"Wollen Sie mit dem Meeting fortfahren oder abbrechen?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Abbrechen",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
-		options.put("Fortfahren",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
+		options.put("Fortfahren", "continue");
+		options.put("Abbrechen", "cancel");
 		expectedEvent.setProperty("options", options);
 
 		InstanceVars expectedInstanceVars = new InstanceVars();

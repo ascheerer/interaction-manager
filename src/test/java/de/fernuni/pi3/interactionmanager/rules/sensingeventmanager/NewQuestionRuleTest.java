@@ -22,7 +22,7 @@ public class NewQuestionRuleTest extends AbstractRuleTest {
 		InstanceVars givenInstanceVars = new InstanceVars();
 		
 		// expected 
-		Event expectedEvent = createTestEvent();
+		Event expectedEvent = new Event();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("recommendation");
@@ -30,7 +30,7 @@ public class NewQuestionRuleTest extends AbstractRuleTest {
 		expectedEvent.setProperty("headline","Neue eingehende Frage von user1");
 		expectedEvent.setProperty("text", "Bitte rufen Sie user1 auf und bitten Sie den Teilnehmer, die Frage zu stellen.");
 		HashMap<String,String> options = new HashMap<String,String>();
-		options.put("Fortfahren", "Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
+		options.put("Fortfahren","continue");
 		expectedEvent.setProperty("options", options);
 		
 		InstanceVars expectedInstanceVars = new InstanceVars();

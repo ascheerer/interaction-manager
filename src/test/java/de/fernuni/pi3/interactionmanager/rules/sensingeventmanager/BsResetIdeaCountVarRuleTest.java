@@ -27,8 +27,7 @@ public class BsResetIdeaCountVarRuleTest extends AbstractRuleTest {
 		InstanceVars expectedInstanceVars = new InstanceVars();
 		expectedInstanceVars.putAll(givenInstanceVars);
 		expectedInstanceVars.put("TEMP_IDEA_COUNT", 0);
-		expectedInstanceVars.put("INITAL_RUN", false);
-		
+
 		addTestData(givenEvent, givenInstanceVars, expectedEvent,
 				expectedInstanceVars);
 	}

@@ -71,8 +71,8 @@ public class RuleSet {
 				errorEvent.setAppType(incomingEvent.getAppType());
 				errorEvent.setAppInstanceId(incomingEvent.getAppInstanceId());
 				errorEvent.setProperty("eventId", 1);
-				errorEvent.setProperty("headline", "Fehler beim Anwenden der Regel " + rule + " auf das Event " + incomingEvent.getName() + " (id=" + incomingEvent.getId() + ")");
-				errorEvent.setProperty("text", "Die genaue Fehlermeldung entnehmen Sie bitte dem Logfile des InteractionManagers."); 
+				errorEvent.setProperty("headline", "Fehler beim Anwenden der Regel " + rule + " auf das Event " + incomingEvent);
+				errorEvent.setProperty("text", "InteractionManager Fehlermeldung: " + errorMsg); 
 				
 				outgoingEvents.add(errorEvent);
 			}

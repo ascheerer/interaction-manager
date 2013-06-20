@@ -24,24 +24,21 @@ public class TooManyQuestionsRuleTest extends AbstractRuleTest {
 		givenInstanceVars.put("MEETING_TYPE", "Planning");
 		
 		// expected
-		Event expectedEvent = createTestEvent();
+		Event expectedEvent = new Event();
 		expectedEvent.setAppType(givenEvent.getAppType());
 		expectedEvent.setAppInstanceId(givenEvent.getAppInstanceId());
 		expectedEvent.setName("recommendation");
-		expectedEvent.setProperty("eventId", 42);
+		expectedEvent.setProperty("eventId", 1);
 		expectedEvent
 				.setProperty("headline", "Die maximale Anzahl der gestellten Fragen wurde überschritten.");
 		expectedEvent
 				.setProperty(
 						"text",
-						"Wollen Sie den Wert zurücksetzen und fortfahren oder abbrechen und fortsetzen?");
+						"Wollen Sie den Wert zurücksetzen und fortfahren?");
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("Meeting beenden",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.quit");
-		options.put("Fortsetzen",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.continue");
-		options.put("Zählung zurücksetzen und fortfahren",
-				"Meetingstar.util.global.sensingEngine.MagicButtonFunctions.resetCount");
+		options.put("Fortfahren", "resetCount");
+		options.put("Meeting beenden", "quit");
+		options.put("Abbrechen", "cancel");
 		expectedEvent.setProperty("options", options);
 
 		InstanceVars expectedInstanceVars = new InstanceVars();
